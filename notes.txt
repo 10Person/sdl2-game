@@ -1,0 +1,17 @@
+managed to get closer to compiling
+
+using:
+wrong:	i686-w64-mingw32-gcc-win32 hello.c -w -lSDL2 -o hello.exe
+
+use:
+		i686-w64-mingw32-gcc-win32 hello.c -o test.exe -L ~/usr/local/i686-w64-mingw32 -I ~/usr/local/i686-w64-mingw32/include -lSDL2main -lSDL2
+instead !!!!!!!!!
+
+Make sure to add 
+	#ifdef main
+	#undef main
+	#endif
+	
+	#define SDL_MAIN_HANDLED
+
+before #include <SDL2/SDL.h>
